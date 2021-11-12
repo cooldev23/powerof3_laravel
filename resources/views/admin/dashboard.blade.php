@@ -6,7 +6,7 @@
     </x-slot> --}}
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-6">
+<x-container>
   <h3 class="text-lg leading-6 font-medium text-gray-900">
     Last 30 days
   </h3>
@@ -55,7 +55,7 @@
       </dt>
       <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
         <p class="text-2xl font-semibold text-gray-900">
-          Count
+          {{ $listingCount }}
         </p>
         {{-- <p class="ml-2 flex items-baseline text-sm font-semibold text-green-600">
           <!-- Heroicon name: solid/arrow-sm-up -->
@@ -119,7 +119,7 @@
       </dt>
       <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
         <p class="text-2xl font-semibold text-gray-900">
-          Count
+          {{ $testimonialCount }}
         </p>
         {{-- <p class="ml-2 flex items-baseline text-sm font-semibold text-red-600">
           <!-- Heroicon name: solid/arrow-sm-down -->
@@ -151,7 +151,7 @@
       </dt>
       <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
         <p class="text-2xl font-semibold text-gray-900">
-          Count
+          {{ $partnerCount }}
         </p>
         {{-- <p class="ml-2 flex items-baseline text-sm font-semibold text-red-600">
           <!-- Heroicon name: solid/arrow-sm-down -->
@@ -173,23 +173,28 @@
   </dl>
   <hr class="mt-6">
 
-<div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
-  <div>
-    <x-card-header class="bg-gray-100 px-2 py-4 mt-6 border-t border-r border-l shadow-inner">
-      <h3 class="text-2xl">Current Featured Properties</h3>
-    </x-card-header>
-    <x-card-body class="border bg-white">
-    </x-card-body>
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <div>
+      <x-card-header class="bg-gray-100 px-2 py-4 mt-6 border-t border-r border-l shadow-inner">
+        <h3 class="text-2xl">Current Featured Properties</h3>
+      </x-card-header>
+      <x-card-body class="border bg-white">
+        @foreach ($featuredProps as $prop)
+            <ul>
+              <li>{{ $prop->address }}</li>
+              <li>{{ $prop->city }}, CO {{ $prop->zip }}</li>
+              <li>{{ $prop->price }}</li>
+            </ul>
+        @endforeach
+      </x-card-body>
+    </div>
+    <div>
+      <x-card-header class="bg-gray-100 px-2 py-4 mt-6 border-t border-r border-l shadow-inner">
+        <h3 class="text-2xl">Most Recently Sold</h3>
+      </x-card-header>
+      <x-card-body class="border bg-white">
+      </x-card-body>
+    </div>
   </div>
-  <div>
-    <x-card-header class="bg-gray-100 px-2 py-4 mt-6 border-t border-r border-l shadow-inner">
-      <h3 class="text-2xl">Most Recently Sold</h3>
-    </x-card-header>
-    <x-card-body class="border bg-white">
-    </x-card-body>
-  </div>
-</div>
-
-
-</div>
+  </x-container>
 </x-layout>

@@ -17963,7 +17963,7 @@ select {
 }
 
 .bg-hero-image {
-  background-image: url("/images/closeup-land.jpg");
+  background-image: url("/images/closeup_land.jpg");
 }
 
 .from-transparent {
@@ -32139,6 +32139,85 @@ select {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dataTables_length, 
+.dataTables_filter {
+  padding: 10px 8px;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  padding: 1px 4px;
+}
+
+table.dataTable thead th {
+  padding: 10px 8px;
+}
+
+#DataTables_Table_0 {
+  border-top: 1px solid #c3c3c3
+}
+
+.dataTables_wrapper {
+  background: #fff;
+}
+
+.dataTables_wrapper .dataTables_info {
+  padding: 20px 0;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  margin-left: 0;
+  border: 1px solid #ddd;
+  color:  #006dcc !important;
+  border-radius: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  border: 1px solid #ddd;
+  color:  #006dcc !important;
+  border-radius: 0;
+  background: #eee;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next.disabled {
+  color: #333 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous.disabled:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next.disabled:hover {
+  border: 1px solid #ddd;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous {
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  color: #006dcc !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.next {
+  border: 1px solid #ddd;
+  border-radius: 0 5px 5px 0;
+  color: #006dcc !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: #fff;
+  color: #006dcc !important;
+  border: 1px solid #006dcc;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  background: #fff !important;
+  border: 1px solid #006dcc;
+  color: #006dcc !important;
 }
 
 @media (min-width: 640px) {
@@ -49267,7 +49346,7 @@ select {
   }
 
   .sm\:bg-hero-image {
-    background-image: url("/images/closeup-land.jpg");
+    background-image: url("/images/closeup_land.jpg");
   }
 
   .sm\:from-transparent {
@@ -80559,7 +80638,7 @@ select {
   }
 
   .md\:bg-hero-image {
-    background-image: url("/images/closeup-land.jpg");
+    background-image: url("/images/closeup_land.jpg");
   }
 
   .md\:from-transparent {
@@ -111851,7 +111930,7 @@ select {
   }
 
   .lg\:bg-hero-image {
-    background-image: url("/images/closeup-land.jpg");
+    background-image: url("/images/closeup_land.jpg");
   }
 
   .lg\:from-transparent {
@@ -143143,7 +143222,7 @@ select {
   }
 
   .xl\:bg-hero-image {
-    background-image: url("/images/closeup-land.jpg");
+    background-image: url("/images/closeup_land.jpg");
   }
 
   .xl\:from-transparent {
@@ -174435,7 +174514,7 @@ select {
   }
 
   .\32xl\:bg-hero-image {
-    background-image: url("/images/closeup-land.jpg");
+    background-image: url("/images/closeup_land.jpg");
   }
 
   .\32xl\:from-transparent {
@@ -188600,4 +188679,3 @@ select {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
-

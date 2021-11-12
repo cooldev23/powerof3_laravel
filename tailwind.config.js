@@ -13,7 +13,7 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: {
-                'hero-image': 'url("/images/closeup-land.jpg")'
+                'hero-image': 'url("/images/closeup_land.jpg")'
             }
         },
     },

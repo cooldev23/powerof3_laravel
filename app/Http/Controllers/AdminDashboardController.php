@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
+use App\Models\Partner;
 use App\Models\Employee;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -12,8 +14,9 @@ class AdminDashboardController extends Controller
     {
         $employeeCount = Employee::count();
         $testimonialCount = Testimonial::count();
-        // $employeeCount = Employee::count();
-        // $employeeCount = Employee::count();
-        return view('dashboard', compact('employeeCount', 'testimonialCount'));
+        $listingCount = Listing::count();
+        $partnerCount = Partner::count();
+        $featuredProps = Listing::where('is_featured', 1)->get();
+        return view('admin.dashboard', compact('employeeCount', 'testimonialCount', 'listingCount', 'partnerCount', 'featuredProps'));
     }
 }

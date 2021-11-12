@@ -15,7 +15,12 @@ class CreateContentBlocksTable extends Migration
     {
         Schema::create('content_blocks', function (Blueprint $table) {
             $table->id();
-            
+            $table->foreignId('page_id')->unsigned();
+            $table->integer('order')->unsigned();
+            $table->foreignId('created_by')->unsigned();
+            $table->foreignId('last_updated_by')->unsigned();
+            $table->string('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

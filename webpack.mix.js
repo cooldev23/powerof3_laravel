@@ -18,4 +18,11 @@ mix.options({
     require('postcss-import'),
     require('tailwindcss'),
     require('autoprefixer'),
+])
+.extract([
+    'datatables.net',
+    'datatables.net-dt',
 ]);
+mix.styles([
+    'node_modules/datatables.net-dt/css/jquery.dataTables.min.css',
+], 'public/css/vendor.css').version();;

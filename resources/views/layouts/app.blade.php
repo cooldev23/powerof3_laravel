@@ -18,14 +18,22 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.partials.nav')
+            @if (Request::is('*admin/*'))
+                @include('admin.layouts.partials.nav-admin')
+            @else
+                @include('layouts.partials.nav')
+            @endif
+            
 
             <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+            @if (!Request::is('/admin/*'))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+            
 
             <!-- Page Content -->
             <main>

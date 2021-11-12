@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateListingTypesTable extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateListingTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('listing_types', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('path');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('status')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateListingTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('listing_types');
+        Schema::dropIfExists('pages');
     }
 }

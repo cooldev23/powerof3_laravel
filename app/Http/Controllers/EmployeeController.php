@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use Illuminate\Http\File;
+use App\Models\EmployeeType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EmployeeController extends Controller
 {
@@ -14,8 +17,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::get();
-        dd($employees);
+        $employees = Employee::with('type')->get();
+        
+        return view('admin.employees.index', compact('employees'));
     }
 
     /**
@@ -25,7 +29,10 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $employee = new Employee();
+        $employeeTypes = EmployeeType::all();
+        
+        return view('admin.employees.create', compact('employee', 'employeeTypes'));
     }
 
     /**
@@ -36,7 +43,24 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'image_path' => 'image',
+            'image_alt' => 'required_with:image_path'
+        ]);
+
+        $fullFilename = strtolower($validated['image_path']->getClientOriginalName());
+
+        $path = basename($request->file('image_path')->storeAs('public/images/employee-images', $fullFilename));
+
+        $employee = Employee::create($request->only(['first_name', 'last_name', 'email', 'phone', 'employee_type_id', 'bio', 'image_alt', 'is_active']));
+
+        $employee->image_path = $path;
+        $employee->save();
+
+        return redirect()->route('admin.employees.index')->with('status', 'Successfully added employee ' . $employee->first_name . ' ' . $employee->last_name);
     }
 
     /**
@@ -47,7 +71,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('admin.employees.show', compact('employee'));
     }
 
     /**
@@ -58,7 +82,9 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+        $employeeTypes = EmployeeType::all();
+        
+        return view('admin.employees.edit', compact('employee', 'employeeTypes'));
     }
 
     /**
@@ -70,7 +96,24 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $validated = $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'image_path' => 'image',
+            'image_alt' => 'required_with:image_path'
+        ]);
+
+        $fullFilename = strtolower($validated['image_path']->getClientOriginalName());
+
+        $path = basename($request->file('image_path')->storeAs('public/images/employee-images', $fullFilename));
+
+        $employee->update($request->only(['first_name', 'last_name', 'email', 'phone', 'employee_type_id', 'bio', 'image_alt', 'is_active']));
+
+        $employee->image_path = $path;
+        $employee->save();
+
+        return redirect()->route('admin.employees.index')->with('status', 'Successfully updated employee ' . $employee->first_name . ' ' . $employee->last_name);
     }
 
     /**

@@ -30,25 +30,34 @@
           </button>
         </div>
         <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-8 w-auto" src="{{ asset('images/logo-test2.svg') }}" alt="PowerOf3 Logo">
-          <img class="hidden lg:block h-8 w-auto" src="{{ asset('images/logo-test2.svg') }}" alt="PowerOf3 Logo">
+          <img class="block lg:hidden h-8 w-auto" src="{{ asset('storage/images/logo-test2.svg') }}" alt="Workflow">
+          <img class="hidden lg:block h-8 w-auto" src="{{ asset('storage/images/logo-test2.svg') }}" alt="Workflow">
         </div>
         <div class="hidden md:ml-6 md:flex md:space-x-8">
           <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-          <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-            Home
+          <a href="{{ route('admin.dashboard') }}" class="{{ Request::is('admin/dashboard') ? 'border-indigo-500 border-b-2' : '' }} text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium">
+            Dashboard
           </a>
-          <a href="{{ route('front-end.listings') }}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a href="{{ route('admin.employees.index') }}" class="{{ Request::is('admin/employees*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            Employees
+          </a>
+          <a href="#" class="{{ Request::is('admin/listings*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Listings
           </a>
-          <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a href="#" class="{{ Request::is('admin/partners*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Partners
           </a>
-          <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a href="#" class="{{ Request::is('admin/content-blocks*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            Content
+          </a>
+          <a href="#" class="{{ Request::is('admin/images*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            Images
+          </a>
+          <a href="{{ route('admin.testimonials.index') }}" class="{{ Request::is('admin/testimonials*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Testimonials
           </a>
-          <a href="{{ route('admin.dashboard') }}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-            Admin
+          <a href="#" class="{{ Request::is('admin/users*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            Users
           </a>
         </div>
       </div>

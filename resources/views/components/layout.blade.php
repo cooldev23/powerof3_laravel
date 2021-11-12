@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
 
         <!-- Styles -->
-        {{-- <link rel="stylesheet" href="{{ asset('css/vendor.css') }}"> --}}
+        <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Scripts -->
@@ -21,25 +21,29 @@
         @stack('styles')
     </head>
     <body class="font-sans antialiased bg-gray-50">
-        @include('layouts.partials.nav')
+        @if (Request::is('*admin/*'))
+            @include('admin.layouts.partials.nav-admin')
+            @include('partials.breadcrumbs')
+        @else
+            @include('layouts.partials.nav')
+        @endif
         
-        {{-- @if (!Request::is('help'))
-        @include('partials.breadcrumbs')
-        @endif --}}
         
-        {{-- @include('partials.alerts') --}}
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <x-container>
+                    @include('partials.alerts')
+                    {{ $slot }}
+                </x-container>
             </main>
         
 
         @stack('modals')
         @stack('scripts')
 
-        {{-- <script src="{{ asset('js/manifest.js') }}"></script>
-        <script src="{{ asset('js/vendor.js') }}"></script> --}}
+        <script src="{{ asset('js/manifest.js') }}"></script>
+        <script src="{{ asset('js/vendor.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
