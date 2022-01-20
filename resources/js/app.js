@@ -5,6 +5,7 @@ require('alpinejs');
 window.$ = window.jQuery = require('jquery');
 require('datatables.net');
 require('datatables.net-dt');
+require("flatpickr");
 
 $('.datatables').DataTable({
   pageLength: 25,
@@ -21,3 +22,15 @@ $('.datatables').DataTable({
   //   }
   // }
 });
+
+// let date = new Date();
+// let lastMonth = date.setMonth(date.getMonth() - 1);
+
+// $('#dateSold').flatpickr({
+//   disableMobile: true,
+//   altInput: true,
+//   altFormat: 'F J @ h:iK',
+//   dateFormat: 'Y-m-d H:i:S',
+//   minDate: lastMonth
+// })
+

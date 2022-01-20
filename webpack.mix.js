@@ -22,7 +22,14 @@ mix.options({
 .extract([
     'datatables.net',
     'datatables.net-dt',
-]);
+    'flatpickr',
+    'tinymce'
+])
+.copy(['node_modules/tinymce/themes/'], 'public/js/themes')
+    .copy(['node_modules/tinymce/skins/'], 'public/js/skins')
+    .copy(['node_modules/tinymce/plugins/'], 'public/js/plugins');
+    
 mix.styles([
     'node_modules/datatables.net-dt/css/jquery.dataTables.min.css',
+    'node_modules/flatpickr/dist/flatpickr.min.css',
 ], 'public/css/vendor.css').version();;

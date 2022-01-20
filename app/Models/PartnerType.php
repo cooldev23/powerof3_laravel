@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ListingType extends Model
+class PartnerType extends Model
 {
     use HasFactory;
 
-    public function employee()
+    public function partner()
     {
-        return $this->hasOne(Listing::class, 'listing_type', 'id');
+        return $this->hasOne(Partner::class, 'partner_type', 'id');
     }
 }

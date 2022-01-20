@@ -20,4 +20,14 @@ class Employee extends Model
     {
         return $this->hasMany(Testimonial::class, 'id', 'employee_id');
     }
+
+    public function listings()
+    {
+        return $this->hasMany(Listing::class, 'id', 'employee_id');
+    }
+
+    public function scopeBrokersOnly($query)
+    {
+        return $query->whereIn('employee_type_id', [1]);
+    }
 }

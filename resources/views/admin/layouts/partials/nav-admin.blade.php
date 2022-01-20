@@ -41,10 +41,10 @@
           <a href="{{ route('admin.employees.index') }}" class="{{ Request::is('admin/employees*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Employees
           </a>
-          <a href="#" class="{{ Request::is('admin/listings*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a href="{{ route('admin.listings.index') }}" class="{{ Request::is('admin/listings*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Listings
           </a>
-          <a href="#" class="{{ Request::is('admin/partners*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a href="{{ route('admin.partners.index') }}" class="{{ Request::is('admin/partners*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Partners
           </a>
           <a href="#" class="{{ Request::is('admin/content-blocks*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
@@ -56,7 +56,7 @@
           <a href="{{ route('admin.testimonials.index') }}" class="{{ Request::is('admin/testimonials*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Testimonials
           </a>
-          <a href="#" class="{{ Request::is('admin/users*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+          <a href="{{ route('admin.users.index') }}" class="{{ Request::is('admin/users*') ? 'border-indigo-500 border-b-2' : '' }} border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
             Users
           </a>
         </div>

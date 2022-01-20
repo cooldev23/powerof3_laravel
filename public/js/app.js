@@ -4027,6 +4027,8 @@ __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jque
 
 __webpack_require__(/*! datatables.net-dt */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js");
 
+__webpack_require__(/*! flatpickr */ "./node_modules/flatpickr/dist/esm/index.js");
+
 $('.datatables').DataTable({
   pageLength: 25,
   order: [1, 'asc'],
@@ -4040,7 +4042,15 @@ $('.datatables').DataTable({
   //   }
   // }
 
-});
+}); // let date = new Date();
+// let lastMonth = date.setMonth(date.getMonth() - 1);
+// $('#dateSold').flatpickr({
+//   disableMobile: true,
+//   altInput: true,
+//   altFormat: 'F J @ h:iK',
+//   dateFormat: 'Y-m-d H:i:S',
+//   minDate: lastMonth
+// })
 
 /***/ }),
 

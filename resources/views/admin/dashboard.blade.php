@@ -69,7 +69,7 @@
         </p> --}}
         <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">
-            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Total Subscribers</span></a>
+            <a href="{{ route('admin.listings.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Total Listings</span></a>
           </div>
         </div>
       </dd>
@@ -133,7 +133,7 @@
         </p> --}}
         <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">
-            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Total Testimonials</span></a>
+            <a href="{{ route('admin.testimonials.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Total Testimonials</span></a>
           </div>
         </div>
       </dd>
@@ -165,7 +165,7 @@
         </p> --}}
         <div class="absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div class="text-sm">
-            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Total Partners</span></a>
+            <a href="{{ route('admin.partners.index') }}" class="font-medium text-indigo-600 hover:text-indigo-500"> View all<span class="sr-only"> Total Partners</span></a>
           </div>
         </div>
       </dd>

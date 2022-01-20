@@ -23,6 +23,8 @@
     },
     "dependencies": {
         "datatables.net": "^1.11.3",
-        "datatables.net-dt": "^1.11.3"
+        "datatables.net-dt": "^1.11.3",
+        "flatpickr": "^4.6.9",
+        "tinymce": "^5.10.2"
     }
 }
