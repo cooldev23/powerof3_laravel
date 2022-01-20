@@ -84,7 +84,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-md mb-2" for="description">
                 Description <small>(optional)</small>
             </label>
-            <textarea class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="description" id="description" placeholder="Partner description" >{{ old('description', $partner->description ? $partner->description : '') }}</textarea>
+            <textarea class="tiny-field appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="description" id="description" placeholder="Partner description" >{{ old('description', $partner->description ? $partner->description : '') }}</textarea>
         </div>
     </div>
 </fieldset>

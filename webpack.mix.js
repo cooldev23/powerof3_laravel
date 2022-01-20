@@ -27,7 +27,8 @@ mix.options({
 ])
 .copy(['node_modules/tinymce/themes/'], 'public/js/themes')
     .copy(['node_modules/tinymce/skins/'], 'public/js/skins')
-    .copy(['node_modules/tinymce/plugins/'], 'public/js/plugins');
+    .copy(['node_modules/tinymce/plugins/'], 'public/js/plugins')
+    .copy(['node_modules/tinymce/icons/'], 'public/js/icons');
     
 mix.styles([
     'node_modules/datatables.net-dt/css/jquery.dataTables.min.css',

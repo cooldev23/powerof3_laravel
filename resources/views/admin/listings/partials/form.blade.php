@@ -134,47 +134,55 @@
                 <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="price" name="price" value="{{ old('price', $listing->price ?? '' ) }}">
             </div>
         </div>
-        <div class="relative mb-4 mx-2 sold-details">
-            <div class="relative">
-                <label for="dateSold" class="block uppercase tracking-wide text-gray-700 text-md mb-2">
-                    Date Sold
-                </label> 
-                <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="dateSold" name="date_sold" value="{{ old('date_sold', $listing->date_sold ?? '' ) }}">
+        <fieldset class="sold-details">
+            <div class="mb-3 border-b">
+                <legend class="text-2xl">Sold Details</legend>
             </div>
-        </div>
-        <div class="relative mb-4 mx-2 sold-details">
-            <div class="relative">
-                <label for="soldPrice" class="block uppercase tracking-wide text-gray-700 text-md mb-2">
-                    Sold Price
-                </label> 
-                <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="soldPrice" name="sold_price" value="{{ old('sold_price', $listing->sold_price ?? '' ) }}">
+            <div class="grid grid-cols-1 grid-flow-row gap-3 sm:grid-cols-2 mb-6">
+                <div class="relative mb-4 mx-2">
+                    <div class="relative">
+                        <label for="dateSold" class="block uppercase tracking-wide text-gray-700 text-md mb-2">
+                            Date Sold
+                        </label> 
+                        <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="dateSold" name="date_sold" value="{{ old('date_sold', $listing->date_sold ?? '' ) }}">
+                    </div>
+                </div>
+                <div class="relative mb-4 mx-2">
+                    <div class="relative">
+                        <label for="soldPrice" class="block uppercase tracking-wide text-gray-700 text-md mb-2">
+                            Sold Price
+                        </label> 
+                        <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="soldPrice" name="sold_price" value="{{ old('sold_price', $listing->sold_price ?? '' ) }}">
+                    </div>
+                </div>
+                {{-- <div class="relative mb-4 mx-2">
+                    <div class="relative">
+                        <label for="represented" class="block uppercase tracking-wide text-gray-700 text-md mb-2">
+                            Represented
+                        </label> 
+                        <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="represented" name="represented" value="{{ old('represented', $listing->represented ?? '' ) }}">
+                    </div>
+                </div> --}}
+                <div class="mb-4 mx-2">
+                    <label class="block uppercase tracking-wide text-gray-700 text-md mb-2" for="represented">
+                        represented
+                    </label>
+                    <div class="relative">
+                        <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" name="represented" id="represented">
+                        <option value="Buyer" {{ !empty($listing->represented) == old('represented', 'Buyer') ? 'selected' : '' }}>Buyer</option> 
+                        <option value="Seller" {{ !empty($listing->represented) == old('represented', 'Seller') ? 'selected' : '' }}>Seller</option> 
+                        <option value="Both" {{ !empty($listing->represented) == old('represented', 'Both') ? 'selected' : '' }}>Both</option> 
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
-        {{-- <div class="relative mb-4 mx-2 sold-details">
-            <div class="relative">
-                <label for="represented" class="block uppercase tracking-wide text-gray-700 text-md mb-2">
-                    Represented
-                </label> 
-                <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="represented" name="represented" value="{{ old('represented', $listing->represented ?? '' ) }}">
-            </div>
-        </div> --}}
-        <div class="mb-4 mx-2 sold-details">
-            <label class="block uppercase tracking-wide text-gray-700 text-md mb-2" for="represented">
-                represented
-            </label>
-            <div class="relative">
-                <select class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline" name="represented" id="represented">
-                <option value="Buyer" {{ !empty($listing->represented) == old('represented', 'Buyer') ? 'selected' : '' }}>Buyer</option> 
-                <option value="Seller" {{ !empty($listing->represented) == old('represented', 'Seller') ? 'selected' : '' }}>Seller</option> 
-                <option value="Both" {{ !empty($listing->represented) == old('represented', 'Both') ? 'selected' : '' }}>Both</option> 
-                </select>
-            </div>
-        </div>
+        </fieldset>
+        
         <div class="mb-4 mx-2 col-span-2">
             <label class="block uppercase tracking-wide text-gray-700 text-md mb-2" for="listing_description">
                 Listing Description
             </label>
-            <textarea class="p03-form-textarea appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="listing_description" id="listing_description" placeholder="Describe the listing" >{{ old('listing_description', $listing->listing_description ?? '') }}</textarea>
+            <textarea class="tiny-field p03-form-textarea appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="listing_description" id="listing_description" placeholder="Describe the listing" >{{ old('listing_description', $listing->listing_description ?? '') }}</textarea>
         </div>
         <div class="mb-4 mx-2">
             <div class="relative">
@@ -207,41 +215,6 @@
         </div>
     </div>
 </fieldset>
-{{-- <div class="mb-6">
-    <label for="status" class="uppercase tracking-wide text-gray-700 text-md font-bold mb-2">
-        Status <span class="lowercase font-normal"><small>(e.g. open, closed, tree trimming, etc.)</small></span>
-    </label> 
-    <input class="w-full text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="status" name="status" value="{{ old('status', !empty($status->status) ? $status->status : '') }}" >
-</div>
-<div class="mb-4">
-    <label class="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-message">
-        Message
-    </label>
-    <textarea class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="message" id="grid-message" placeholder="Describe the issue" >{{ old('message', !empty($status->message) ? $status->message : '') }}</textarea>
-</div>
-<input type="checkbox" id="endDateToggle" class="mr-2" {{ (!empty($status->end_date) && strtotime($status->end_date) >= time()) ? 'checked' : '' }}>
-<label class="inline-block uppercase tracking-wide text-gray-700 text-md font-bold mb-2" for="endDateToggle">
-    End Date
-</label>
-<div id="endDate" class="mb-6">
-    <input type="text" value="{{ old('end_date', !empty($status->end_date) ? $status->end_date : '') }}" name="end_date" id="grid-end-date" class="w-full text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" placeholder="Select Date">
-</div>
-<div class="mb-4" id="sendNotificationWrap">
-    <input type="checkbox" id="sendNotification" name="send_notification" class="mr-2">
-    <label class="inline-block uppercase tracking-wide text-gray-700 text-md font-bold mb-2" for="sendNotification">
-        Send Notification
-    </label>
-    <p id="subscriberListName" class="bg-yellow-200 p-2 rounded-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Notification will be sent to <span id="listName" class="font-bold"></span> subscriber list</p>
-</div>
-<hr>
-<div class="mt-4 flex justify-end">
-    <a class="bg-transparent hover:bg-gray-400 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-2" href="{{ url()->previous() !== url()->current() ? url()->previous() : route('status.index') }}">Cancel</a>
-    <input type="submit" value="Save" id="saveBtn" class="bg-blue-500 border border-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer">
-</div>
-
-@if (!empty($status->sent_at))
-<p class="text-right mt-2 text-sm text-gray-700 font-bold">Notification Sent: {{ date('F jS', strtotime($status->sent_at)) }}</p>
-@endif --}}
 
 @push('scripts')
 <script src="/js/autosize.min.js"></script>
@@ -250,7 +223,7 @@
         typeVal = type.value,
         acreWrap = document.querySelector('.property-type'),
         houseType = document.querySelectorAll('.house-type'),
-        soldDetails = document.querySelectorAll('.sold-details'),
+        soldDetails = document.querySelector('.sold-details'),
         otherCheckboxes = document.querySelectorAll('input:not(#isSold)[type=checkbox]'),
         isSold = document.querySelector('#isSold');
 
@@ -270,9 +243,7 @@
         }
     })
 
-    soldDetails.forEach(el => {
-        el.style.display = 'none';
-    })
+    soldDetails.style.display = 'none';
 
     isSold.addEventListener('click', function(e) {
         if (isSold.checked == true) {
@@ -291,13 +262,9 @@
                 minDate: lastMonth
             });
 
-            soldDetails.forEach(el => {
-                el.style.display = 'block';
-            });
+            soldDetails.style.display = 'block';
         } else {
-            soldDetails.forEach(el => {
-                el.style.display = 'none';
-            })
+            soldDetails.style.display = 'none';
         }
     })
 

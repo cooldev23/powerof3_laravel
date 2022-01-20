@@ -61,7 +61,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-md mb-2" for="bio">
                 Employee Bio
             </label>
-            <textarea class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="bio" id="bio" placeholder="Describe the issue" >{{ old('bio', $employee->bio ? $employee->bio : '') }}</textarea>
+            <textarea class="tiny-field appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="bio" id="bio" placeholder="Add employee bio" >{{ old('bio', $employee->bio ? $employee->bio : '') }}</textarea>
         </div>
         <div class="mb-4 mx-2">
             <div class="relative">
@@ -81,45 +81,11 @@
         </div>
     </div>
 </fieldset>
-{{-- <div class="mb-6">
-    <label for="status" class="uppercase tracking-wide text-gray-700 text-md font-bold mb-2">
-        Status <span class="lowercase font-normal"><small>(e.g. open, closed, tree trimming, etc.)</small></span>
-    </label> 
-    <input class="w-full text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="status" name="status" value="{{ old('status', !empty($status->status) ? $status->status : '') }}" >
-</div>
-<div class="mb-4">
-    <label class="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2" for="grid-message">
-        Message
-    </label>
-    <textarea class="appearance-none block w-full bg-white text-gray-700 border border-gray-400 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:border-blue-500 shadow" rows="10" cols="30" name="message" id="grid-message" placeholder="Describe the issue" >{{ old('message', !empty($status->message) ? $status->message : '') }}</textarea>
-</div>
-<input type="checkbox" id="endDateToggle" class="mr-2" {{ (!empty($status->end_date) && strtotime($status->end_date) >= time()) ? 'checked' : '' }}>
-<label class="inline-block uppercase tracking-wide text-gray-700 text-md font-bold mb-2" for="endDateToggle">
-    End Date
-</label>
-<div id="endDate" class="mb-6">
-    <input type="text" value="{{ old('end_date', !empty($status->end_date) ? $status->end_date : '') }}" name="end_date" id="grid-end-date" class="w-full text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" placeholder="Select Date">
-</div>
-<div class="mb-4" id="sendNotificationWrap">
-    <input type="checkbox" id="sendNotification" name="send_notification" class="mr-2">
-    <label class="inline-block uppercase tracking-wide text-gray-700 text-md font-bold mb-2" for="sendNotification">
-        Send Notification
-    </label>
-    <p id="subscriberListName" class="bg-yellow-200 p-2 rounded-sm"><i class="fa fa-info-circle" aria-hidden="true"></i> Notification will be sent to <span id="listName" class="font-bold"></span> subscriber list</p>
-</div>
-<hr>
-<div class="mt-4 flex justify-end">
-    <a class="bg-transparent hover:bg-gray-400 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mr-2" href="{{ url()->previous() !== url()->current() ? url()->previous() : route('status.index') }}">Cancel</a>
-    <input type="submit" value="Save" id="saveBtn" class="bg-blue-500 border border-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer">
-</div>
-
-@if (!empty($status->sent_at))
-<p class="text-right mt-2 text-sm text-gray-700 font-bold">Notification Sent: {{ date('F jS', strtotime($status->sent_at)) }}</p>
-@endif --}}
 
 @push('scripts')
 <script src="/js/autosize.min.js"></script>
 <script>
     autosize(document.querySelectorAll('textarea'));
+
 </script>
 @endpush

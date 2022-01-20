@@ -6,6 +6,7 @@ window.$ = window.jQuery = require('jquery');
 require('datatables.net');
 require('datatables.net-dt');
 require("flatpickr");
+require('tinymce');
 
 $('.datatables').DataTable({
   pageLength: 25,
@@ -34,3 +35,19 @@ $('.datatables').DataTable({
 //   minDate: lastMonth
 // })
 
+tinymce.init({
+  selector: '.tiny-field',
+  branding: false,
+  browser_spellcheck: true,
+  menubar: false,
+  statusbar: false,
+  plugins: 'advlist lists link paste autoresize',
+  autoresize_on_init: true,
+  autoresize_bottom_margin: 5,
+  autoresize_min_height: 200,
+  convert_urls: false,
+  toolbar: 'undo redo | styleselect | bold italic underline | bullist numlist | link unlink | alignleft aligncenter',
+  link_assume_external_targets: true,
+  paste_remove_styles: true,
+  valid_elements: 'a[href|target],strong/b,em/i,br,p,ul,ol,li'
+});
