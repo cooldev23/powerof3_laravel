@@ -5,6 +5,7 @@ use App\Models\Listing;
 use App\Models\Partner;
 use App\Models\Employee;
 use App\Models\Testimonial;
+use App\Models\ListingMedia;
 use Tabuna\Breadcrumbs\Trail;
 use Tabuna\Breadcrumbs\Breadcrumbs;
 
@@ -74,6 +75,27 @@ Breadcrumbs::for('admin.listings.edit', function (Trail $trail, Listing $listing
 Breadcrumbs::for('admin.listings.show', function (Trail $trail, Listing $listing) {
     $trail->parent('admin.listings.index')
         ->push('Show ' . $listing->address, route('admin.listings.show', array($listing)));
+});
+
+// Listings
+Breadcrumbs::for('admin.listing-media.index', function (Trail $trail) {
+    $trail->parent('admin.dashboard')
+        ->push('Listing Media', route('admin.listing-media.index'));
+});
+
+Breadcrumbs::for('admin.listing-media.create', function (Trail $trail) {
+    $trail->parent('admin.listing-media.index')
+        ->push('Add Listing Media', route('admin.listing-media.create'));
+});
+
+Breadcrumbs::for('admin.listing-media.edit', function (Trail $trail, ListingMedia $lm) {
+    $trail->parent('admin.listing-media.index')
+        ->push('Edit ' . $lm->address, route('admin.listing-media.edit', array($lm)));
+});
+
+Breadcrumbs::for('admin.listing-media.show', function (Trail $trail, ListingMedia $lm) {
+    $trail->parent('admin.listing-media.index')
+        ->push('Show ' . $lm->address, route('admin.listing-media.show', array($lm)));
 });
 
 // Partners

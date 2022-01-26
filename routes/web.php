@@ -7,6 +7,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ListingMediaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,14 @@ Route::prefix('admin')->group(function() {
         Route::post('listings/create', [ListingController::class, 'store'])->name('admin.listings.store');
         Route::get('listings/edit/{listing}', [ListingController::class, 'edit'])->name('admin.listings.edit');
         Route::put('listings/edit/{listing}', [ListingController::class, 'update'])->name('admin.listings.update');
+
+        // Listing Media (images, videos)
+        Route::get('listing-media', [ListingMediaController::class, 'index'])->name('admin.listing-media.index');
+        Route::get('listing-media/show/{listing}', [ListingMediaController::class, 'show'])->name('admin.listing-media.show');
+        Route::get('listing-media/create', [ListingMediaController::class, 'create'])->name('admin.listing-media.create');
+        Route::post('listing-media/create', [ListingMediaController::class, 'store'])->name('admin.listing-media.store');
+        Route::get('listing-media/edit/{listing}', [ListingMediaController::class, 'edit'])->name('admin.listing-media.edit');
+        Route::put('listing-media/edit/{listing}', [ListingMediaController::class, 'update'])->name('admin.listing-media.update');
 
         // Testimonials
         Route::get('testimonials', [TestimonialController::class, 'index'])->name('admin.testimonials.index');

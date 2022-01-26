@@ -20,4 +20,9 @@ class Listing extends Model
     {
         return $this->hasOne(ListingType::class, 'id', 'listing_type');
     }
+
+    public function media()
+    {
+        return $this->hasMany(ListingMedia::class);
+    }
 }
