@@ -77,26 +77,26 @@ Breadcrumbs::for('admin.listings.show', function (Trail $trail, Listing $listing
         ->push('Show ' . $listing->address, route('admin.listings.show', array($listing)));
 });
 
-// Listings
-Breadcrumbs::for('admin.listing-media.index', function (Trail $trail) {
-    $trail->parent('admin.dashboard')
-        ->push('Listing Media', route('admin.listing-media.index'));
+// Listing Media
+// Breadcrumbs::for('admin.listing-media.index', function (Trail $trail) {
+//     $trail->parent('admin.dashboard')
+//         ->push('Listing Media', route('admin.listing-media.index'));
+// });
+
+Breadcrumbs::for('admin.listing-media.show', function (Trail $trail, Listing $listing) {
+    $trail->parent('admin.listings.index')
+        ->push($listing->address, route('admin.listing-media.show', array($listing)));
 });
 
-Breadcrumbs::for('admin.listing-media.create', function (Trail $trail) {
-    $trail->parent('admin.listing-media.index')
-        ->push('Add Listing Media', route('admin.listing-media.create'));
+Breadcrumbs::for('admin.listing-media.create', function (Trail $trail, Listing $listing) {
+    $trail->parent('admin.listing-media.show', $listing)
+        ->push('Add Media', route('admin.listing-media.create', $listing));
 });
 
-Breadcrumbs::for('admin.listing-media.edit', function (Trail $trail, ListingMedia $lm) {
-    $trail->parent('admin.listing-media.index')
-        ->push('Edit ' . $lm->address, route('admin.listing-media.edit', array($lm)));
-});
-
-Breadcrumbs::for('admin.listing-media.show', function (Trail $trail, ListingMedia $lm) {
-    $trail->parent('admin.listing-media.index')
-        ->push('Show ' . $lm->address, route('admin.listing-media.show', array($lm)));
-});
+// Breadcrumbs::for('admin.listing-media.edit', function (Trail $trail, ListingMedia $lm) {
+//     $trail->parent('admin.listing-media.index')
+//         ->push('Edit ' . $lm->address, route('admin.listing-media.edit', array($lm)));
+// });
 
 // Partners
 Breadcrumbs::for('admin.partners.index', function (Trail $trail) {

@@ -13,9 +13,10 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+        <livewire:styles />
         <!-- Scripts -->
-        <script src="https://use.fontawesome.com/4f7bb7e630.js"></script>
+        <script src="https://use.fontawesome.com/d931304747.js"></script>
+        
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         @stack('styles')
@@ -46,5 +47,6 @@
         <script src="{{ asset('js/vendor.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         @stack('scripts')
+        <livewire:scripts />
     </body>
 </html>

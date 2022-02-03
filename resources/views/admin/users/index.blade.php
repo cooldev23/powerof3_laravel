@@ -3,9 +3,9 @@
         <a href="{{ route('admin.users.create') }}" class="btn bg-blue-500 hover:bg-blue-700 rounded-sm text-white font-bold p-2 text-sm shadow"><i class="fa fa-plus" aria-hidden="true"></i> Add User</a>
     </x-card-header>  
     <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="-my-2 sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200">
+                <div class="shadow border-b border-gray-200">
                     <x-card-body class="bg-white">
                     @foreach ($users as $user)
                         @if ($loop->first)

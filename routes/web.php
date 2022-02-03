@@ -45,12 +45,12 @@ Route::prefix('admin')->group(function() {
         Route::put('listings/edit/{listing}', [ListingController::class, 'update'])->name('admin.listings.update');
 
         // Listing Media (images, videos)
-        Route::get('listing-media', [ListingMediaController::class, 'index'])->name('admin.listing-media.index');
+        // Route::get('listing-media', [ListingMediaController::class, 'index'])->name('admin.listing-media.index');
         Route::get('listing-media/show/{listing}', [ListingMediaController::class, 'show'])->name('admin.listing-media.show');
-        Route::get('listing-media/create', [ListingMediaController::class, 'create'])->name('admin.listing-media.create');
-        Route::post('listing-media/create', [ListingMediaController::class, 'store'])->name('admin.listing-media.store');
-        Route::get('listing-media/edit/{listing}', [ListingMediaController::class, 'edit'])->name('admin.listing-media.edit');
-        Route::put('listing-media/edit/{listing}', [ListingMediaController::class, 'update'])->name('admin.listing-media.update');
+        Route::get('listing-media/create/{listing}', [ListingMediaController::class, 'create'])->name('admin.listing-media.create');
+        Route::post('listing-media/create/{listing}', [ListingMediaController::class, 'store'])->name('admin.listing-media.store');
+        // Route::get('listing-media/edit/{listing}', [ListingMediaController::class, 'edit'])->name('admin.listing-media.edit');
+        // Route::put('listing-media/edit/{listing}', [ListingMediaController::class, 'update'])->name('admin.listing-media.update');
 
         // Testimonials
         Route::get('testimonials', [TestimonialController::class, 'index'])->name('admin.testimonials.index');

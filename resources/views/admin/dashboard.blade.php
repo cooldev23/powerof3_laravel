@@ -87,7 +87,7 @@
       </dt>
       <dd class="ml-16 pb-6 flex items-baseline sm:pb-7">
         <p class="text-2xl font-semibold text-gray-900">
-            Count
+            {{ $soldCount }}
         </p>
         {{-- <p class="ml-2 flex items-baseline text-sm font-semibold text-green-600">
           <!-- Heroicon name: solid/arrow-sm-up -->
@@ -180,11 +180,14 @@
       </x-card-header>
       <x-card-body class="border bg-white">
         @foreach ($featuredProps as $prop)
+          <div class="flex">
+            {{-- <img src="{{ asset('storage/images/listing-images/' . $prop->id . '/' . $prop->media->media_path) }}" alt="{{ $prop->media->alt_image_text }}"> --}}
             <ul>
               <li>{{ $prop->address }}</li>
               <li>{{ $prop->city }}, CO {{ $prop->zip }}</li>
               <li>{{ $prop->price }}</li>
             </ul>
+          </div>
         @endforeach
       </x-card-body>
     </div>

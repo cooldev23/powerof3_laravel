@@ -60,9 +60,9 @@
                 </select>
             </div>
         </div>
-        <div class="mb-4 mx-2 property-type">
+        <div class="mb-4 mx-2 property-type hidden">
             <div class="relative">
-                <label for="acres" class="block uppercase tracking-wide text-gray-700 text-md mb-2">
+                <label for="acres" class="uppercase tracking-wide text-gray-700 text-md mb-2">
                     Acres
                 </label> 
                 <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="number" id="acres" name="acres" value="{{ old('acres', $listing->acres ?? '') }}" >
@@ -118,7 +118,7 @@
                 <div class="flex items-center">
                     <input type="hidden" name="is_sold" value="0">
                     <div class="flex items-center h-5">
-                        <input id="isSold" aria-describedby="is_sold" name="is_sold" type="checkbox" value="1" {{ $listing->sold_date ? 'checked' : '' }} class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-500 rounded">
+                        <input id="isSold" aria-describedby="is_sold" name="is_sold" type="checkbox" value="1" {{ $listing->date_sold ? 'checked' : '' }} class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-500 rounded">
                     </div>
                     <div class="ml-3 text-sm">
                         <label for="isSold" class="block uppercase tracking-wide text-gray-700 text-md">Is Sold</label>
@@ -134,7 +134,7 @@
                 <input class="w-full text-gray-700 border border-gray-400 rounded py-2 px-4 leading-tight focus:outline-none focus:border-blue-500 shadow" type="text" id="price" name="price" value="{{ old('price', $listing->price ?? '' ) }}">
             </div>
         </div>
-        <fieldset class="sold-details">
+        <fieldset class="sold-details col-span-2">
             <div class="mb-3 border-b">
                 <legend class="text-2xl">Sold Details</legend>
             </div>
@@ -227,7 +227,13 @@
         otherCheckboxes = document.querySelectorAll('input:not(#isSold)[type=checkbox]'),
         isSold = document.querySelector('#isSold');
 
-    acreWrap.style.display = 'none';
+    if (type.value === '2') {
+        acreWrap.style.display = 'block';
+        houseType.forEach(el => {
+            el.style.display = 'none';
+        });
+    }
+    
 
     type.addEventListener('change', function(e) {
         houseType.forEach(el => {
@@ -243,31 +249,31 @@
         }
     })
 
-    soldDetails.style.display = 'none';
+    soldDetails.style.display = isSold.checked == true ? 'block' : 'none';
 
     isSold.addEventListener('click', function(e) {
         if (isSold.checked == true) {
             otherCheckboxes.forEach(el => {
                 el.checked = false;
             });
-
-            let date = new Date();
-            let lastMonth = date.setMonth(date.getMonth() - 1);
-            flatpickr('input[name=date_sold]',{
-                disableMobile: true,
-                enableTime: false,
-                altInput: true,
-                altFormat: 'F J, Y',
-                dateFormat: 'Y-m-d H:i:S',
-                minDate: lastMonth
-            });
-
             soldDetails.style.display = 'block';
         } else {
             soldDetails.style.display = 'none';
         }
     })
 
+    let date = new Date();
+    let soldDate = '{{ $listing->date_sold }}';
+    let lastMonth = date.setMonth(date.getMonth() - 1);
+    flatpickr('input[name=date_sold]',{
+        disableMobile: true,
+        enableTime: false,
+        altInput: true,
+        altFormat: 'F J, Y',
+        dateFormat: 'Y-m-d H:i:S',
+        defaultDate: soldDate ? soldDate : '',
+        minDate: lastMonth
+    });
     
     autosize(document.querySelectorAll('textarea'));
 </script>

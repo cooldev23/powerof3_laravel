@@ -44,7 +44,6 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
         $validated = $request->validate([
             'address' => 'required',
             'city' => 'required',
@@ -126,6 +125,11 @@ class ListingController extends Controller
             $fullFilename = strtolower($validated['image_path']->getClientOriginalName());
 
             $path = basename($request->file('image_path')->storeAs('public/images/listing-images', $fullFilename));
+        }
+
+        if ($request->is_sold) {
+            $listing->sold_price = $request->sold_price;
+            $listing->save();
         }
 
         $listing->image_path = $path;

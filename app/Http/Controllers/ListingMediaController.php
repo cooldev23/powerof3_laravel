@@ -6,6 +6,7 @@ use stdClass;
 use App\Models\Listing;
 use App\Models\ListingMedia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ListingMediaController extends Controller
 {
@@ -16,8 +17,7 @@ class ListingMediaController extends Controller
      */
     public function index()
     {
-        $listingMedia = ListingMedia::with('listing')->get();
-        return view('admin.listings.media.index', compact('listingMedia'));
+        
     }
 
     /**
@@ -25,11 +25,9 @@ class ListingMediaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Listing $listing)
     {
-        $listings = Listing::all();
-        
-        return view('admin.listings.media.create', compact('listings'));
+        return view('admin.listings.media.create', compact('listing'));
     }
 
     /**
@@ -38,28 +36,47 @@ class ListingMediaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Listing $listing)
     {
         // dd($request->all());
         $validated = $request->validate([
             'listing_id' => 'required',
             'type' => 'required',
-            'media_path' => 'required|mimes:jpg,png,jpeg,mp4,avi',
+            // 'media_path' => 'required|mimetypes:video/avi,video/mpeg,image/jpg,image/png,image/jpeg',
             'alt_image_text' => 'required_if:media_type,image'
         ]);
 
-        $lm = ListingMedia::create($request->only(['listing_id', 'type', 'is_active', 'is_featured', 'alt_image_text']));
+        $request->validate([
+            'file', // Confirm the upload is a file before checking its type.
+            function ($attribute, $value, $fail) {
+                $is_image = Validator::make(
+                    ['upload' => $value],
+                    ['upload' => 'image']
+                )->passes();
+
+                $is_video = Validator::make(
+                    ['upload' => $value],
+                    ['upload' => 'mimetypes:video/avi,video/mpeg,video/quicktime']
+                )->passes();
+
+                if (!$is_video && !$is_image) {
+                    $fail(':attribute must be image or video.');
+                }
+            }
+        ]);
+
+        $lm = $listing->media()->create($request->only(['listing_id', 'type', 'is_active', 'is_featured', 'alt_image_text']));
 
         $path = null;
 
-        $fullFilename = strtolower($validated['media_path']->getClientOriginalName());
+        $fullFilename = strtolower($request->file('media_path')->getClientOriginalName());
 
         $path = basename($request->file('media_path')->storeAs('public/images/listing-images/' . $validated['listing_id'], $fullFilename));
 
         $lm->media_path = $path;
         $lm->save();
 
-        return redirect()->route('admin.listing-media.index')->with('status', 'Successfully created ' . $lm->type . ' file');
+        return redirect()->route('admin.listing-media.show', array($listing))->with('status', 'Successfully added media for ' . $listing->address);
     }
 
     /**
@@ -68,9 +85,10 @@ class ListingMediaController extends Controller
      * @param  \App\Models\ListingMedia  $listingMedia
      * @return \Illuminate\Http\Response
      */
-    public function show(ListingMedia $listingMedia)
+    public function show(Listing $listing)
     {
-        //
+        $listingMedia = $listing->media;
+        return view('admin.listings.media.show', compact('listingMedia', 'listing'));
     }
 
     /**

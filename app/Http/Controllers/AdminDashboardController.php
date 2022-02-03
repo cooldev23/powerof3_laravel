@@ -16,7 +16,9 @@ class AdminDashboardController extends Controller
         $testimonialCount = Testimonial::count();
         $listingCount = Listing::count();
         $partnerCount = Partner::count();
-        $featuredProps = Listing::where('is_featured', 1)->get();
-        return view('admin.dashboard', compact('employeeCount', 'testimonialCount', 'listingCount', 'partnerCount', 'featuredProps'));
+        $sold = Listing::whereNotNull('date_sold')->get();
+        $soldCount = count($sold);
+        $featuredProps = Listing::with('media')->where('is_featured', 1)->get();
+        return view('admin.dashboard', compact('employeeCount', 'testimonialCount', 'listingCount', 'partnerCount', 'featuredProps', 'soldCount'));
     }
 }

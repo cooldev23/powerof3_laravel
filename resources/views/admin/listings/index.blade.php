@@ -3,9 +3,9 @@
         <a href="{{ route('admin.listings.create') }}" class="btn bg-blue-500 hover:bg-blue-700 rounded-sm text-white font-bold p-2 text-sm shadow"><i class="fa fa-plus" aria-hidden="true"></i> Add Listing</a>
     </x-card-header>  
     <div class="flex flex-col">
-        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="-my-2 sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow overflow-hidden border-b border-gray-200">
+                <div class="shadow border-b border-gray-200">
                     <x-card-body class="bg-white">
                     @foreach ($listings as $listing)
                         @if ($loop->first)
@@ -41,6 +41,9 @@
                                                 <x-dropdown-link href="{{ route('admin.listings.show', array($listing)) }}">
                                                     <i class="fa-fw fa fa-eye"></i> View
                                                 </x-dropdown-link>
+                                                <x-dropdown-link href="{{ route('admin.listing-media.show', array($listing)) }}">
+                                                    <i class="fa-fw fa fa-image"></i> Manage Images
+                                                </x-dropdown-link>
                                             </x-dropdown>
                                         </td>
                                         <td class="px-6 py-4">
@@ -74,20 +77,6 @@
                                             @endif
                                             &dollar;{{ $listing->price }}
                                         </td>
-                                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 flex flex-col">
-                                            @if ($listing->is_featured)
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">{{ $listing->is_featured ? 'Featured' : '' }}</span>
-                                            @endif
-                                            
-                                            @if ($listing->is_active)
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ $listing->is_active ? 'Active' : ''}}</span>
-                                            @endif
-                                            
-                                            @if ($listing->date_sold)
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">{{ date('F jS, Y', strtotime($listing->date_sold )) }}</span>
-                                            @endif
-                                            
-                                        </td> --}}
                                         </tr>
                         @if ($loop->last)
                                 </tbody>
