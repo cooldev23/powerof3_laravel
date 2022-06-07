@@ -21,28 +21,27 @@
 
         @stack('styles')
     </head>
-    <body class="font-sans antialiased bg-gray-50">
+    <body class="relative font-sans antialiased bg-gray-50">
         @if (Request::is('*admin/*'))
             @include('admin.layouts.partials.nav-admin')
             @include('partials.breadcrumbs')
         @else
             @include('layouts.partials.nav')
         @endif
-        
-        
-
-            <!-- Page Content -->
-            <main>
-                <x-container>
-                    @include('partials.alerts')
-                    {{ $slot }}
-                </x-container>
-            </main>
-        
-
+        @if (Request::is('/'))
+        <x-header></x-header>
+        @endif
+        <!-- Page Content -->
+        <main class="h-full">
+            
+            
+                @include('partials.alerts')
+                {{ $slot }}
+            
+            <x-footer></x-footer>
+        </main>
         @stack('modals')
-        
-
+    
         <script src="{{ asset('js/manifest.js') }}"></script>
         <script src="{{ asset('js/vendor.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
