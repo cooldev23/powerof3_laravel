@@ -25,4 +25,9 @@ class Listing extends Model
     {
         return $this->hasMany(ListingMedia::class);
     }
+
+    public function getPriceAttribute($value)
+    {
+        return '$' . $value;
+    }
 }

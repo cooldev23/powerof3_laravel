@@ -55,7 +55,7 @@ class ListingController extends Controller
             'video' => 'mimetypes:video/avi,video/mpeg'
         ]); 
 
-        $listing = Listing::create($request->only(['address', 'city', 'zip', 'employee_id', 'listing_type', 'bedrooms', 'bathrooms', 'acres', 'price', 'url', 'is_active', 'is_featured', 'description', 'image_alt', 'video_path', 'date_sold', 'sold_price']));
+        $listing = Listing::create($request->only(['address', 'city', 'zip', 'employee_id', 'listing_type', 'bedrooms', 'bathrooms', 'acres', 'price', 'url', 'is_active', 'is_featured', 'listing_description', 'image_alt', 'video_path', 'date_sold', 'sold_price']));
 
         $path = null;
 
@@ -117,7 +117,7 @@ class ListingController extends Controller
             'video' => 'mimetypes:video/avi,video/mpeg'
         ]);
 
-        $listing->update($request->only(['address', 'city', 'zip', 'employee_id', 'listing_type', 'bedrooms', 'bathrooms', 'acres', 'price', 'url', 'is_active', 'is_featured', 'description', 'image_alt', 'video_path', 'date_sold']));
+        $listing->update($request->only(['address', 'city', 'zip', 'employee_id', 'listing_type', 'bedrooms', 'bathrooms', 'acres', 'price', 'url', 'is_active', 'is_featured', 'listing_description', 'image_alt', 'video_path', 'date_sold']));
 
         $path = null;
 
