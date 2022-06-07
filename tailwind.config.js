@@ -13,7 +13,16 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             backgroundImage: {
-                'hero-image': 'url("/images/closeup_land.jpg")'
+                'hero-image': 'url("/storage/images/closeup_land.jpg")',
+                'house-image': 'url("/storage/images/listing-images/highland-hills.jpg")',
+                'rec-image': 'url("/storage/images/rec-prop.jpg")'
+            },
+            colors: {
+                'primary-color': '#446477',
+                'primary-accent': '#304754',
+            },
+            boxShadow: {
+                'main': '1px 1px 2px rgba(0,0,0,0.3)'
             }
         },
     },
@@ -24,5 +33,8 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/aspect-ratio'),
+    ],
 };

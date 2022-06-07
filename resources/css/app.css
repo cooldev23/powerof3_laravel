@@ -2,6 +2,15 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
 
 .dataTables_length, 
 .dataTables_filter {
@@ -9,7 +18,16 @@
 }
 
 .dataTables_wrapper .dataTables_length select {
-    padding: 1px 4px;
+    padding: 3px 8px;
+}
+
+select[name=DataTables_Table_0_length] {
+    background-position: left 1.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
 }
 
 table.dataTable thead th {
