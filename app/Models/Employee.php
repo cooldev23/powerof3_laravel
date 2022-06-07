@@ -30,4 +30,14 @@ class Employee extends Model
     {
         return $query->whereIn('employee_type_id', [1]);
     }
+
+    /**
+     * Get the employee's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }
