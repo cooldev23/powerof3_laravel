@@ -135,50 +135,14 @@
 
     
     </x-container>
-    <div class="bg-primary-color">
-       
-    </div>
-    <div>
-        <div class="grid grid-cols- justify-center bg-gray-100 border-t">
-            <div>
-                <div class="px-4 py-5 sm:p-6 border-r border-gray-300">
-                    <div class="md:grid md:grid-cols-3 md:gap-6">
-                        <div class="md:col-span-1">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">Get In Touch</h3>
-                            <p class="mt-1 text-sm text-gray-500">Have a question? Want to list your home? In the market for a commercial or
-                    recreational property? Drop us a line! Be sure to visit the <a href="#" class="text-blue-500">Contact</a> page for our office address if you want to stop by!</p>
-                        </div>
-                        <div class="mt-5 md:mt-0 md:col-span-2">
-                            <form action="#" method="POST">
-                                <div class="grid grid-cols-6 gap-6">
-                                    <div class="col-span-6">
-                                        <label for="name" class="block text-sm font-medium text-gray-700">First name</label>
-                                        <input type="text" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                    </div>
-
-                                    <div class="col-span-6">
-                                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                                        <input type="text" name="email" id="email" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                    </div>
-                                    <div class="col-span-6">
-                                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                        <textarea name="message" id="message" cols="30" rows="6" placeholder="What would you like to say?" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
-                                        {{-- <input type="text" name="message" id="message" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> --}}
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+    <div class="bg-gray-100">
+        <div class="grid grid-cols-2 justify-center">
+            @foreach ($testimonials as $test)
+            <div class="p-8 text-gray-700 border-white border-r flex justify-center align-center">
+                <blockquote class="blockquote text-center">{{ $test->content }}</blockquote>
+                <footer class="blockquote-footer text-right px-5">{{ $test->posted_by }}</footer>
             </div>
-            <div class="px-md-5">
-                <blockquote class="blockquote text-center">We highly recommend Cathy to any home buyer/seller
-                    for many reasons. During the buying process she kept us in the loop communicating often
-                    about what was happening. Cathy is detailed oriented. She is sincerely committed to the best
-                    interests of her clients and works hard to make their desires happen!</blockquote>
-                <footer class="blockquote-footer text-right px-5">ginnhopp</footer>
-            </div>
-            <div class="px-4 flex items-center text-center border-r border-gray-300">{{ $testi->content }}</div>
+            @endforeach
             <div class="flex flex-col justify-center text-center">
                 <h4 class="text-3xl">Get Your Free Home Evaluation</h4>
                 <div class="text-center my-3">
@@ -189,6 +153,39 @@
             </div>
         </div>
     </div>
+    <x-container>
+        <div class="bg-white">
+            <div class="px-4 py-5 sm:p-6">
+                <div class="md:grid md:grid-cols-3 md:gap-6">
+                    <div class="md:col-span-1">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">Get In Touch</h3>
+                        <p class="mt-1 text-sm text-gray-500">Have a question? Want to list your home? In the market for a commercial or
+                recreational property? Drop us a line! Be sure to visit the <a href="#" class="text-blue-500">Contact</a> page for our office address if you want to stop by!</p>
+                    </div>
+                    <div class="mt-5 md:mt-0 md:col-span-2">
+                        <form action="#" method="POST">
+                            <div class="grid grid-cols-6 gap-6">
+                                <div class="col-span-6">
+                                    <label for="name" class="block text-sm font-medium text-gray-700">First name</label>
+                                    <input type="text" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+
+                                <div class="col-span-6">
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                                    <input type="text" name="email" id="email" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                </div>
+                                <div class="col-span-6">
+                                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                    <textarea name="message" id="message" cols="30" rows="6" placeholder="What would you like to say?" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+                                    {{-- <input type="text" name="message" id="message" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> --}}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </x-container>
      {{-- <x-container>
             <h3 class="text-lg font-medium leading-6 text-gray-900">Get In Touch</h3>
             <p class="mt-1 text-sm text-gray-500">Have a question? Want to list your home? In the market for a commercial or recreational property? Drop us a line! Be sure to visit the <a href="#" class="text-blue-500">Contact</a> page for our office address if you want to stop by!</p>
