@@ -13,9 +13,9 @@ class FrontEndController extends Controller
     {
         $employees = Employee::with('type')->where('is_active', 1)->get();
         $featuredListings = Listing::with(['type', 'broker', 'media'])->where('is_featured', 1)->get();
-        $testimonials = Testimonial::with('employee')->where('is_active', 1)->inRandomOrder()->limit(5)->get();
-        $testi = Testimonial::find(1);
-        return view('front-end.welcome', compact('employees', 'featuredListings', 'testimonials', 'testi'));
+        // TODO rework this to eliminate foreach in view
+        $testimonials = Testimonial::with('employee')->where('is_active', 1)->inRandomOrder()->limit(1)->get();
+        return view('front-end.welcome', compact('employees', 'featuredListings', 'testimonials'));
     }
 
     public function listings()
