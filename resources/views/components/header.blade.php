@@ -6,7 +6,7 @@
 				<h3 class="text-5xl">Specializing In...</h3>
 				<h5 class="block md:hidden text-3xl">Homes, Land, Recreational Property</h5>
 			</div>
-			<div class="mt-8 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+			<div class="hidden md:grid mt-8 max-w-lg mx-auto gap-5 lg:grid-cols-3 lg:max-w-none">
 				<div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
 					<div class="flex-shrink-0">
 						<img class="h-48 w-full object-cover" src="{{ url('/storage/images/listing-images/highland-hills.jpg') }}" alt="">
