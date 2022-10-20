@@ -21,7 +21,7 @@
 
         @stack('styles')
     </head>
-    <body class="relative font-sans antialiased bg-gray-50">
+    <body class="relative font-sans antialiased">
         @if (Request::is('*admin/*'))
             @include('admin.layouts.partials.nav-admin')
             @include('partials.breadcrumbs')

@@ -12,6 +12,14 @@ body {
     height: 100%;
 }
 
+.proud {
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.8);
+}
+
+.proud-white {
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+
 .dataTables_length, 
 .dataTables_filter {
     padding: 10px 8px;

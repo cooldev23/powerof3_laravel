@@ -3,7 +3,7 @@
 	<div class="relative -mt-4">
 		<div class="relative max-w-7xl mx-auto">
 			<div class="text-center">
-				<h3 class="text-5xl">Specializing In...</h3>
+				{{-- <h3 class="text-5xl proud-white">Specializing In...</h3> --}}
 				<h5 class="block md:hidden text-3xl">Homes, Land, Recreational Property</h5>
 			</div>
 			<div class="hidden md:grid mt-8 max-w-lg mx-auto gap-5 lg:grid-cols-3 lg:max-w-none">

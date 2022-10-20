@@ -30,4 +30,9 @@ class Listing extends Model
     {
         return '$' . $value;
     }
+
+    public function scopeCurrentListings($query)
+    {
+        $query->where('is_active', 1);
+    }
 }

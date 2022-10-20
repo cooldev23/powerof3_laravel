@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\AdminDashboardController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ListingController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\TestimonialController;
-use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ListingMediaController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontEndController::class, 'index'])->name('welcome');
 Route::get('listings', [FrontEndController::class, 'listings'])->name('front-end.listings');
+Route::get('show-listing/{listing}', [FrontEndController::class, 'showListing'])->name('front-end.show-listing');
+Route::get('listing-search', [FrontEndController::class, 'listingSearch'])->name('front-end.search-listing');
+
+// Listing Search
+Route::get('get-listings', [SearchController::class, 'getListings'])->name('front-end.get-listings');
 
 Route::prefix('admin')->group(function() {
     Route::middleware('auth')->group(function() {

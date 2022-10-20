@@ -20,8 +20,21 @@ class FrontEndController extends Controller
 
     public function listings()
     {
-        $listings = Listing::all();
-    
-        return view('front-end.listings', compact('listings'));
+        $listings = Listing::currentListings()->whereNull('date_sold')->get();
+        $previousSales = Listing::whereNotNull('date_sold')->get();
+        
+        return view('front-end.listings', compact('listings', 'previousSales'));
+    }
+
+    public function showListing(Listing $listing)
+    {
+        // TODO get this from the MLS API to get all pictures and info
+        return view('front-end.show-listing', compact('listing'));
+    }
+
+    public function listingSearch()
+    {
+        // TODO get this from the MLS API to get all pictures and info
+        return view('front-end.all-listings');
     }
 }

@@ -1,10 +1,10 @@
 <x-layout>
     <x-container>
     <div class="px-5 bg-white">
-        <div class="pt-3">
+        {{-- <div class="pt-3">
             <img class="hidden lg:block h-32 w-auto mx-auto border-b" src="http://powerof3_laravel.test/storage/images/logo-test2.svg" alt="Power Of 3 Logo">
-        </div>
-        <div class="py-4 px-16">
+        </div> --}}
+        <div class="pb-4 px-16">
             <p class="mb-3">My real estate experience encompasses working with buyers and sellers with varying needs and in all stages of life to include the first time buyer, upsizing, downsizing and building financial wealth through real estate. I pride myself in providing a high level of customer service and grow my business by developing relationships built on trust.</p>
             <p class="mb-3">I provide real estate services to buyers and sellers across all of Northern Colorado to include your primary residence, investment, recreational & commercial properties and land/lots in the mountains and plains.</p>
             <p class="mb-3">As a personable professional, and enthusiastic Realtor, I utilize my negotiating skills and the best networking and marketing available in the industry to meet and exceed YOUR needs.</p>
@@ -25,20 +25,20 @@
                         </div>
                     <div>
                         <div class="-mt-px flex divide-x divide-gray-200">
-                            <div class="-ml-px w-0 flex-1 flex hover:bg-primary-color">
-                                <a href="mailto:{{ $em->email ?? 'cathymontgomeryrealty@gmail.com' }}" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:text-white">
+                            <div class="-ml-px w-0 flex-1 flex">
+                                <a href="mailto:{{ $em->email ?? 'cathymontgomeryrealty@gmail.com' }}" class="relative -mr-px w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-bl-lg hover:bg-primary-color hover:text-white">
                                     <!-- Heroicon name: solid/mail -->
-                                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                                     </svg>
                                     <span class="ml-2">Email</span>
                                 </a>
                             </div>
-                            <div class="-ml-px w-0 flex-1 flex hover:bg-primary-color">
-                                <a href="tel:{{ $em->phone ?? '1+970-797-2132' }}" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:text-white">
+                            <div class="-ml-px w-0 flex-1 flex hover:bg-gray-300">
+                                <a href="tel:{{ $em->phone ?? '1+970-797-2132' }}" class="relative w-0 flex-1 inline-flex items-center justify-center py-4 text-sm text-gray-700 font-medium border border-transparent rounded-br-lg hover:bg-primary-color hover:text-white">
                                     <!-- Heroicon name: solid/phone -->
-                                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                                     </svg>
                                     <span class="ml-2">Call</span>
@@ -132,86 +132,19 @@
       </div>
     </section>
 </div>
-
-    
     </x-container>
-    <div class="bg-gray-100">
-        <div class="grid grid-cols-2 justify-center">
+<div class="bg-gray-100 min-h-max">
+    <x-container>
+        <div class="flex justify-center align-center min-h-48">
             @foreach ($testimonials as $test)
-            <div class="p-8 text-gray-700 border-white border-r flex justify-center align-center">
-                <blockquote class="blockquote text-center">{{ $test->content }}</blockquote>
+            <div class="px-48 py-8 flex flex-col justify-center align-center">
+                <blockquote class="blockquote text-left">{{ $test->content }}</blockquote>
                 <footer class="blockquote-footer text-right px-5">{{ $test->posted_by }}</footer>
             </div>
             @endforeach
-            <div class="flex flex-col justify-center text-center">
-                <h4 class="text-3xl">Get Your Free Home Evaluation</h4>
-                <div class="text-center my-3">
-                    <a href="../Powerof3_w_DB/evaluation.php"><button class="px-3 py-2 bg-primary-color text-white rounded-md">Get Evaluation</button></a>
-                </div>
-                <p>Let's determine the value of your home!</p>
-                <p><small>(no obligation)</small></p>
-            </div>
-        </div>
-    </div>
-    <x-container>
-        <div class="bg-white">
-            <div class="px-4 py-5 sm:p-6">
-                <div class="md:grid md:grid-cols-3 md:gap-6">
-                    <div class="md:col-span-1">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Get In Touch</h3>
-                        <p class="mt-1 text-sm text-gray-500">Have a question? Want to list your home? In the market for a commercial or
-                recreational property? Drop us a line! Be sure to visit the <a href="#" class="text-blue-500">Contact</a> page for our office address if you want to stop by!</p>
-                    </div>
-                    <div class="mt-5 md:mt-0 md:col-span-2">
-                        <form action="#" method="POST">
-                            <div class="grid grid-cols-6 gap-6">
-                                <div class="col-span-6">
-                                    <label for="name" class="block text-sm font-medium text-gray-700">First name</label>
-                                    <input type="text" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
-
-                                <div class="col-span-6">
-                                    <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                                    <input type="text" name="email" id="email" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                </div>
-                                <div class="col-span-6">
-                                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                    <textarea name="message" id="message" cols="30" rows="6" placeholder="What would you like to say?" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
-                                    {{-- <input type="text" name="message" id="message" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> --}}
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </x-container>
-     {{-- <x-container>
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Get In Touch</h3>
-            <p class="mt-1 text-sm text-gray-500">Have a question? Want to list your home? In the market for a commercial or recreational property? Drop us a line! Be sure to visit the <a href="#" class="text-blue-500">Contact</a> page for our office address if you want to stop by!</p>
-            <div class="grid grid-cols-2 justify-center bg-gray-100 border-red-500 border-t">
-                <div class="mt-5 md:mt-0">
-                    <form action="#" method="POST">
-                        <div class="grid grid-cols-6 gap-6">
-                            <div class="col-span-6">
-                                <label for="name" class="block text-sm font-medium text-gray-700">First name</label>
-                                <input type="text" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            </div>
-
-                            <div class="col-span-6">
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
-                                <input type="text" name="email" id="email" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            </div>
-                            <div class="col-span-6">
-                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea name="message" id="message" cols="30" rows="6" placeholder="What would you like to say?" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
-                                {{-- <input type="text" name="message" id="message" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"> 
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </x-container> --}}
+</div>
 
 @push('scripts')
 <script>
