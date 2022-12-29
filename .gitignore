@@ -20,3 +20,6 @@ yarn-error.log
 /public/js/app.js
 /public/js/vendor.js
 /public/js/manifest.js
+/public/css/*
+/public/js/*
+/public/css/vendor.css
