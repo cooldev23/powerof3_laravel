@@ -23,3 +23,5 @@ yarn-error.log
 /public/css/*
 /public/js/*
 /public/css/vendor.css
+/public/mix-manifest.json
+/public/js/icons/default/*
