@@ -6,6 +6,7 @@ use App\Models\Employee;
 use Illuminate\Http\File;
 use App\Models\EmployeeType;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 
 class EmployeeController extends Controller
@@ -13,9 +14,9 @@ class EmployeeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function index()
+    public function index(): view
     {
         $employees = Employee::with('type')->get();
         
@@ -25,9 +26,9 @@ class EmployeeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create(): view
     {
         $employee = new Employee();
         $employeeTypes = EmployeeType::all();
@@ -67,9 +68,9 @@ class EmployeeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function show(Employee $employee)
+    public function show(Employee $employee): view
     {
         return view('admin.employees.show', compact('employee'));
     }
@@ -78,9 +79,9 @@ class EmployeeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Employee  $employee
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function edit(Employee $employee)
+    public function edit(Employee $employee): view
     {
         $employeeTypes = EmployeeType::all();
         
