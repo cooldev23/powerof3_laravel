@@ -14,7 +14,9 @@ yarn-error.log
 /.idea
 /.vscode
 /public/js/plugins
+/public/js/icons
 /public/js/skins
 /public/js/themes
 /public/js/app.js
-/public/
+/public/js/vendor.js
+/public/js/manifest.js
