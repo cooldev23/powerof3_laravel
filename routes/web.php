@@ -22,10 +22,13 @@ use App\Http\Controllers\AdminDashboardController;
 |
 */
 
+// Front End
 Route::get('/', [FrontEndController::class, 'index'])->name('welcome');
 Route::get('listings', [FrontEndController::class, 'listings'])->name('front-end.listings');
 Route::get('show-listing/{listing}', [FrontEndController::class, 'showListing'])->name('front-end.show-listing');
 Route::get('listing-search', [FrontEndController::class, 'listingSearch'])->name('front-end.search-listing');
+Route::get('partners', [FrontEndController::class, 'partners'])->name('front-end.partners');
+Route::get('testimonials', [FrontEndController::class, 'testimonials'])->name('front-end.testimonials');
 
 // Listing Search
 Route::get('get-listings', [SearchController::class, 'getListings'])->name('front-end.get-listings');
