@@ -1,6 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html {
     width: 100%;
@@ -35,7 +35,7 @@ select[name=DataTables_Table_0_length] {
     background-size: 1.5em 1.5em;
     padding-right: 2.5rem;
     -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    print-color-adjust: exact;
 }
 
 table.dataTable thead th {
